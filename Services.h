@@ -281,4 +281,15 @@ namespace BeonFit {
             }
         }
     };
+
+    // 6. Сервіс статистики (Для графіків)
+    public ref class StatsService {
+    public:
+        static OdbcDataReader^ GetChartData(OdbcConnection^ conn, String^ columns) {
+            // Передаємо відкрите з'єднання, бо DataReader потребує його активним
+            String^ query = "SELECT \"Data\", " + columns + " FROM public.\"Body\" ORDER BY \"Data\" ASC;";
+            OdbcCommand^ cmd = gcnew OdbcCommand(query, conn);
+            return cmd->ExecuteReader();
+        }
+    };
 }
