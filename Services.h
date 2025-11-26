@@ -60,4 +60,50 @@ namespace BeonFit {
             }
         }
     };
+
+    // 3. Сервіс профілю
+    public ref class ProfileService {
+    public:
+        static void UpdateField(String^ login, String^ fieldName, Object^ value) {
+            OdbcConnection^ conn = DbHelper::GetConnection();
+            try {
+                conn->Open();
+                // Оновлення конкретного поля в таблиці People
+                String^ query = "UPDATE \"People\" SET \"" + fieldName + "\" = ? WHERE \"Login\" = ?";
+                OdbcCommand^ cmd = gcnew OdbcCommand(query, conn);
+                cmd->Parameters->AddWithValue("@Value", value);
+                cmd->Parameters->AddWithValue("@Login", login);
+                cmd->ExecuteNonQuery();
+            }
+            catch (Exception^ ex) {
+                MessageBox::Show("Error updating profile: " + ex->Message);
+            }
+            finally {
+                conn->Close();
+            }
+        }
+
+        static String^ GetField(String^ login, String^ fieldName) {
+            OdbcConnection^ conn = DbHelper::GetConnection();
+            try {
+                conn->Open();
+                String^ query = "SELECT \"" + fieldName + "\" FROM \"People\" WHERE \"Login\" = ?";
+                OdbcCommand^ cmd = gcnew OdbcCommand(query, conn);
+                cmd->Parameters->AddWithValue("@Login", login);
+                Object^ result = cmd->ExecuteScalar();
+
+                if (result != nullptr && result != DBNull::Value) {
+                    return result->ToString();
+                }
+                return "";
+            }
+            catch (Exception^ ex) {
+                return "";
+            }
+            finally {
+                conn->Close();
+            }
+        }
+    };
+
 }

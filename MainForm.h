@@ -1,5 +1,6 @@
 #pragma once
 #include "Services.h"
+#include "Profile_form.h"
 
 namespace BeonFit {
 
@@ -544,13 +545,13 @@ namespace BeonFit {
 
 	private: System::Void iconButton2_Click(System::Object^ sender, System::EventArgs^ e) {
 		ActivateButton(sender);
-		/*panelmain->Controls->Clear();
+		panelmain->Controls->Clear();
 		Profile_form^ f2 = gcnew Profile_form(LoggedInUser);
 		f2->TopLevel = false;
 		f2->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 		f2->Dock = System::Windows::Forms::DockStyle::Fill;
 		panelmain->Controls->Add(f2);
-		f2->Show();*/
+		f2->Show();
 	}
 
 	private: System::Void iconButton1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -598,12 +599,12 @@ namespace BeonFit {
 			panel1->Visible = false;
 			ActivateButton(iconButton2);
 			panelmain->Controls->Clear();
-			/*Profile_form^ f2 = gcnew Profile_form(LoggedInUser);
+			Profile_form^ f2 = gcnew Profile_form(LoggedInUser);
 			f2->TopLevel = false;
 			f2->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			f2->Dock = System::Windows::Forms::DockStyle::Fill;
 			panelmain->Controls->Add(f2);
-			f2->Show();*/
+			f2->Show();
 			iconButton7->Visible = true;
 		}
 		else {
