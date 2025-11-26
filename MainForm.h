@@ -1,6 +1,7 @@
 #pragma once
 #include "Services.h"
 #include "Profile_form.h"
+#include"Trainigform.h"
 
 namespace BeonFit {
 
@@ -556,13 +557,13 @@ namespace BeonFit {
 
 	private: System::Void iconButton1_Click(System::Object^ sender, System::EventArgs^ e) {
 		ActivateButton(sender);
-		/*panelmain->Controls->Clear();
+		panelmain->Controls->Clear();
 		Trainigform^ f1 = gcnew Trainigform(LoggedInUser);
 		f1->TopLevel = false;
 		f1->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 		f1->Dock = System::Windows::Forms::DockStyle::Fill;
 		panelmain->Controls->Add(f1);
-		f1->Show();*/
+		f1->Show();
 	}
 
 	private: System::Void iconButton3_Click(System::Object^ sender, System::EventArgs^ e) {

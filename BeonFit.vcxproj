@@ -122,6 +122,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Services.h" />
+    <ClInclude Include="Trainigform.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp">
@@ -136,6 +139,7 @@
   <ItemGroup>
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Profile_form.cpp" />
+    <ClCompile Include="Trainigform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">
@@ -143,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Profile_form.resx">
       <DependentUpon>Profile_form.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trainigform.resx">
+      <DependentUpon>Trainigform.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
