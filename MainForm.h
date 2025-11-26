@@ -2,6 +2,7 @@
 #include "Services.h"
 #include "Profile_form.h"
 #include"Trainigform.h"
+#include "ProgressForm.h"
 
 namespace BeonFit {
 
@@ -568,13 +569,13 @@ namespace BeonFit {
 
 	private: System::Void iconButton3_Click(System::Object^ sender, System::EventArgs^ e) {
 		ActivateButton(sender);
-		/*panelmain->Controls->Clear();
+		panelmain->Controls->Clear();
 		ProgressForm^ f3 = gcnew ProgressForm(LoggedInUser);
 		f3->TopLevel = false;
 		f3->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 		f3->Dock = System::Windows::Forms::DockStyle::Fill;
 		panelmain->Controls->Add(f3);
-		f3->Show();*/
+		f3->Show();
 	}
 
 	private: System::Void iconButton4_Click(System::Object^ sender, System::EventArgs^ e) {
