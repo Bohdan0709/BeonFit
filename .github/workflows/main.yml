@@ -1,4 +1,4 @@
-name: CI/CD Lab 6 (WinForms)
+name: CI/CD Lab 6 (WinForms Fixed)
 
 on:
   push:
@@ -9,51 +9,52 @@ permissions:
 
 jobs:
   build-windows-app:
-    # 1. Використовуємо Windows, бо це Windows Forms
     runs-on: windows-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Налаштовуємо середовище для збірки (MSBuild)
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.1
 
-      # 3. Налаштовуємо NuGet (для завантаження бібліотек, якщо є)
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1.0
       
       - name: Restore NuGet packages
         run: nuget restore
 
-      # 4.  (Саме тут створюється .exe)
-      # Ця команда шукає ваш .sln або .csproj файл і будує його
-      - name: Build Application
-        run: msbuild /p:Configuration=Release /p:Platform="Any CPU"
 
-      # 5. Вивід інформації (вимога завдання)
+      - name: Build Application
+        run: msbuild /p:Configuration=Release
+
       - name: Show Author Info
         run: |
           echo "Build initiated by: ${{ github.actor }}"
           echo "Commit message: ${{ github.event.head_commit.message }}"
         shell: bash
 
-      # 6. Пакуємо готову програму в архів
-      # Ми беремо все з папки bin/Release (там лежить скомпільований exe)
+      # Пакуємо все, що знайшли у папках Release
       - name: Archive Production Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: BeonFit-Build
           path: '**/bin/Release/**'
 
-      # 7. Створюємо zip-архів для релізу засобами PowerShell
+      # Створюємо архів для релізу (шукаємо exe файл рекурсивно)
       - name: Zip Release
         run: |
-          # Шукаємо папку Release (де лежить exe) і архівуємо її
-          Compress-Archive -Path .\*\bin\Release\* -DestinationPath BeonFit-Release.zip
+          # Знаходимо шлях до папки, де лежить .exe файл
+          $exePath = Get-ChildItem -Path . -Recurse -Filter "*.exe" | Select-Object -First 1 | ForEach-Object { $_.DirectoryName }
+          
+          if ($exePath) {
+            echo "Found build at: $exePath"
+            Compress-Archive -Path "$exePath\*" -DestinationPath BeonFit-Release.zip
+          } else {
+            echo "Error: Could not find built application!"
+            exit 1
+          }
 
-      # 8. Публікація реліза
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
@@ -66,7 +67,7 @@ jobs:
             **Як запустити:**
             1. Скачайте архів.
             2. Розпакуйте.
-            3. Запустіть файл **BeonFit.exe** (або з назвою вашого проекту).
+            3. Запустіть файл **.exe**
           files: BeonFit-Release.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
