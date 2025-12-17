@@ -1,46 +1,72 @@
-name: CI/CD Lab 6
+name: CI/CD Lab 6 (WinForms)
 
-# Запускаємо Workflow, коли ви робите push у гілку main або master
 on:
   push:
     branches: [ "main", "master" ]
 
-# Надаємо права на створення релізів
 permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  build-windows-app:
+    # 1. Використовуємо Windows, бо це Windows Forms
+    runs-on: windows-latest
 
     steps:
-      # 1. Завантажуємо ваш код на віртуальну машину GitHub
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Виводимо інформацію про автора (вимога завдання)
+      # 2. Налаштовуємо середовище для збірки (MSBuild)
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
+
+      # 3. Налаштовуємо NuGet (для завантаження бібліотек, якщо є)
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0
+      
+      - name: Restore NuGet packages
+        run: nuget restore
+
+      # 4.  (Саме тут створюється .exe)
+      # Ця команда шукає ваш .sln або .csproj файл і будує його
+      - name: Build Application
+        run: msbuild /p:Configuration=Release /p:Platform="Any CPU"
+
+      # 5. Вивід інформації (вимога завдання)
       - name: Show Author Info
         run: |
-          echo "Workflow initiated by: ${{ github.actor }}"
+          echo "Build initiated by: ${{ github.actor }}"
           echo "Commit message: ${{ github.event.head_commit.message }}"
+        shell: bash
 
-      # 3. Етап Build (Збирання)
-      # Оскільки я не знаю мову вашого коду, ми зробимо універсальний build:
-      # Ми запакуємо всі файли вашого проекту в архів app-release.zip
-      - name: Build Project (Archive)
+      # 6. Пакуємо готову програму в архів
+      # Ми беремо все з папки bin/Release (там лежить скомпільований exe)
+      - name: Archive Production Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: BeonFit-Build
+          path: '**/bin/Release/**'
+
+      # 7. Створюємо zip-архів для релізу засобами PowerShell
+      - name: Zip Release
         run: |
-          echo "Starting build process..."
-          # Створюємо zip архів з усіх файлів, крім папки .git
-          zip -r app-release.zip . -x ".git/*" ".github/*"
-          ls -l app-release.zip
+          # Шукаємо папку Release (де лежить exe) і архівуємо її
+          Compress-Archive -Path .\*\bin\Release\* -DestinationPath BeonFit-Release.zip
 
-      # 4. Створення релізу в GitHub
+      # 8. Публікація реліза
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: release-${{ github.run_number }} # Унікальний тег (напр. release-1, release-2)
-          name: Release Ver. ${{ github.run_number }}
-          body: "Автоматичний реліз. Автор: ${{ github.actor }}"
-          files: app-release.zip # Файл, який ми створили на кроці 3
+          tag_name: v1.0.${{ github.run_number }}
+          name: BeonFit App v1.0.${{ github.run_number }}
+          body: |
+            Автоматична збірка Windows Forms додатку.
+            Автор: ${{ github.actor }}
+            
+            **Як запустити:**
+            1. Скачайте архів.
+            2. Розпакуйте.
+            3. Запустіть файл **BeonFit.exe** (або з назвою вашого проекту).
+          files: BeonFit-Release.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
