@@ -1,0 +1,46 @@
+name: CI/CD Lab 6
+
+# Запускаємо Workflow, коли ви робите push у гілку main або master
+on:
+  push:
+    branches: [ "main", "master" ]
+
+# Надаємо права на створення релізів
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Завантажуємо ваш код на віртуальну машину GitHub
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Виводимо інформацію про автора (вимога завдання)
+      - name: Show Author Info
+        run: |
+          echo "Workflow initiated by: ${{ github.actor }}"
+          echo "Commit message: ${{ github.event.head_commit.message }}"
+
+      # 3. Етап Build (Збирання)
+      # Оскільки я не знаю мову вашого коду, ми зробимо універсальний build:
+      # Ми запакуємо всі файли вашого проекту в архів app-release.zip
+      - name: Build Project (Archive)
+        run: |
+          echo "Starting build process..."
+          # Створюємо zip архів з усіх файлів, крім папки .git
+          zip -r app-release.zip . -x ".git/*" ".github/*"
+          ls -l app-release.zip
+
+      # 4. Створення релізу в GitHub
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: release-${{ github.run_number }} # Унікальний тег (напр. release-1, release-2)
+          name: Release Ver. ${{ github.run_number }}
+          body: "Автоматичний реліз. Автор: ${{ github.actor }}"
+          files: app-release.zip # Файл, який ми створили на кроці 3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
