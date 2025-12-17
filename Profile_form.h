@@ -38,7 +38,7 @@ namespace BeonFit {
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::TextBox^ textBox5;
+
 	private: System::Windows::Forms::RadioButton^ radioButton1;
 	private: System::Windows::Forms::RadioButton^ radioButton2;
 	private: System::Windows::Forms::Button^ button1;
@@ -48,6 +48,7 @@ namespace BeonFit {
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::ComponentModel::IContainer^ components;
 
 #pragma region Windows Form Designer generated code
@@ -64,7 +65,6 @@ namespace BeonFit {
 			   this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			   this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			   this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			   this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			   this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			   this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			   this->button1 = (gcnew System::Windows::Forms::Button());
@@ -74,6 +74,7 @@ namespace BeonFit {
 			   this->button4 = (gcnew System::Windows::Forms::Button());
 			   this->button3 = (gcnew System::Windows::Forms::Button());
 			   this->button2 = (gcnew System::Windows::Forms::Button());
+			   this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			   this->SuspendLayout();
 			   // 
 			   // iconButton1
@@ -95,7 +96,8 @@ namespace BeonFit {
 			   // label1
 			   // 
 			   this->label1->AutoSize = true;
-			   this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->label1->ForeColor = System::Drawing::Color::Gainsboro;
 			   this->label1->Location = System::Drawing::Point(265, 121);
 			   this->label1->Name = L"label1";
@@ -106,7 +108,8 @@ namespace BeonFit {
 			   // label2
 			   // 
 			   this->label2->AutoSize = true;
-			   this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->label2->ForeColor = System::Drawing::Color::Gainsboro;
 			   this->label2->Location = System::Drawing::Point(109, 373);
 			   this->label2->Name = L"label2";
@@ -117,7 +120,8 @@ namespace BeonFit {
 			   // label3
 			   // 
 			   this->label3->AutoSize = true;
-			   this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->label3->ForeColor = System::Drawing::Color::Gainsboro;
 			   this->label3->Location = System::Drawing::Point(109, 166);
 			   this->label3->Name = L"label3";
@@ -128,7 +132,8 @@ namespace BeonFit {
 			   // label4
 			   // 
 			   this->label4->AutoSize = true;
-			   this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->label4->ForeColor = System::Drawing::Color::Gainsboro;
 			   this->label4->Location = System::Drawing::Point(109, 209);
 			   this->label4->Name = L"label4";
@@ -139,7 +144,8 @@ namespace BeonFit {
 			   // label5
 			   // 
 			   this->label5->AutoSize = true;
-			   this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->label5->ForeColor = System::Drawing::Color::Gainsboro;
 			   this->label5->Location = System::Drawing::Point(109, 291);
 			   this->label5->Name = L"label5";
@@ -150,7 +156,8 @@ namespace BeonFit {
 			   // label6
 			   // 
 			   this->label6->AutoSize = true;
-			   this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->label6->ForeColor = System::Drawing::Color::Gainsboro;
 			   this->label6->Location = System::Drawing::Point(109, 333);
 			   this->label6->Name = L"label6";
@@ -161,7 +168,8 @@ namespace BeonFit {
 			   // label7
 			   // 
 			   this->label7->AutoSize = true;
-			   this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->label7->ForeColor = System::Drawing::Color::Gainsboro;
 			   this->label7->Location = System::Drawing::Point(109, 251);
 			   this->label7->Name = L"label7";
@@ -171,7 +179,8 @@ namespace BeonFit {
 			   // 
 			   // textBox2
 			   // 
-			   this->textBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)));
+			   this->textBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(40)));
 			   this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->textBox2->ForeColor = System::Drawing::Color::White;
 			   this->textBox2->Location = System::Drawing::Point(260, 204);
@@ -181,7 +190,8 @@ namespace BeonFit {
 			   // 
 			   // textBox3
 			   // 
-			   this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)));
+			   this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(40)));
 			   this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->textBox3->ForeColor = System::Drawing::Color::White;
 			   this->textBox3->Location = System::Drawing::Point(260, 247);
@@ -191,7 +201,8 @@ namespace BeonFit {
 			   // 
 			   // textBox4
 			   // 
-			   this->textBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)));
+			   this->textBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(40)));
 			   this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->textBox4->ForeColor = System::Drawing::Color::White;
 			   this->textBox4->Location = System::Drawing::Point(260, 288);
@@ -199,21 +210,12 @@ namespace BeonFit {
 			   this->textBox4->Size = System::Drawing::Size(132, 22);
 			   this->textBox4->TabIndex = 11;
 			   // 
-			   // textBox5
-			   // 
-			   this->textBox5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)));
-			   this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->textBox5->ForeColor = System::Drawing::Color::White;
-			   this->textBox5->Location = System::Drawing::Point(260, 330);
-			   this->textBox5->Name = L"textBox5";
-			   this->textBox5->Size = System::Drawing::Size(132, 22);
-			   this->textBox5->TabIndex = 12;
-			   // 
 			   // radioButton1
 			   // 
 			   this->radioButton1->AutoSize = true;
 			   this->radioButton1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->radioButton1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->radioButton1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->radioButton1->ForeColor = System::Drawing::Color::Gainsboro;
 			   this->radioButton1->Location = System::Drawing::Point(256, 162);
 			   this->radioButton1->Name = L"radioButton1";
@@ -227,7 +229,8 @@ namespace BeonFit {
 			   // 
 			   this->radioButton2->AutoSize = true;
 			   this->radioButton2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->radioButton2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->radioButton2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->radioButton2->ForeColor = System::Drawing::Color::Gainsboro;
 			   this->radioButton2->Location = System::Drawing::Point(332, 162);
 			   this->radioButton2->Name = L"radioButton2";
@@ -242,7 +245,8 @@ namespace BeonFit {
 			   this->button1->BackColor = System::Drawing::Color::Orange;
 			   this->button1->FlatAppearance->BorderSize = 0;
 			   this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->button1->ForeColor = System::Drawing::Color::White;
 			   this->button1->Location = System::Drawing::Point(417, 204);
 			   this->button1->Name = L"button1";
@@ -257,7 +261,8 @@ namespace BeonFit {
 			   this->button5->BackColor = System::Drawing::Color::Orange;
 			   this->button5->FlatAppearance->BorderSize = 0;
 			   this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->button5->ForeColor = System::Drawing::Color::White;
 			   this->button5->Location = System::Drawing::Point(417, 164);
 			   this->button5->Name = L"button5";
@@ -269,7 +274,8 @@ namespace BeonFit {
 			   // 
 			   // textBox1
 			   // 
-			   this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)));
+			   this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(40)));
 			   this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->textBox1->ForeColor = System::Drawing::Color::White;
 			   this->textBox1->Location = System::Drawing::Point(260, 370);
@@ -282,7 +288,8 @@ namespace BeonFit {
 			   this->button6->BackColor = System::Drawing::Color::Orange;
 			   this->button6->FlatAppearance->BorderSize = 0;
 			   this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->button6->ForeColor = System::Drawing::Color::White;
 			   this->button6->Location = System::Drawing::Point(417, 371);
 			   this->button6->Name = L"button6";
@@ -297,7 +304,8 @@ namespace BeonFit {
 			   this->button4->BackColor = System::Drawing::Color::Orange;
 			   this->button4->FlatAppearance->BorderSize = 0;
 			   this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->button4->ForeColor = System::Drawing::Color::White;
 			   this->button4->Location = System::Drawing::Point(417, 331);
 			   this->button4->Name = L"button4";
@@ -312,7 +320,8 @@ namespace BeonFit {
 			   this->button3->BackColor = System::Drawing::Color::Orange;
 			   this->button3->FlatAppearance->BorderSize = 0;
 			   this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->button3->ForeColor = System::Drawing::Color::White;
 			   this->button3->Location = System::Drawing::Point(417, 289);
 			   this->button3->Name = L"button3";
@@ -327,7 +336,8 @@ namespace BeonFit {
 			   this->button2->BackColor = System::Drawing::Color::Orange;
 			   this->button2->FlatAppearance->BorderSize = 0;
 			   this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			   this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(204)));
 			   this->button2->ForeColor = System::Drawing::Color::White;
 			   this->button2->Location = System::Drawing::Point(417, 248);
 			   this->button2->Name = L"button2";
@@ -337,12 +347,28 @@ namespace BeonFit {
 			   this->button2->UseVisualStyleBackColor = false;
 			   this->button2->Click += gcnew System::EventHandler(this, &Profile_form::button2_Click);
 			   // 
+			   // comboBox1
+			   // 
+			   this->comboBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(40)));
+			   this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			   this->comboBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			   this->comboBox1->ForeColor = System::Drawing::Color::White;
+			   this->comboBox1->FormattingEnabled = true;
+			   this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Easy", L"Medium", L"High" });
+			   this->comboBox1->Location = System::Drawing::Point(260, 330);
+			   this->comboBox1->Name = L"comboBox1";
+			   this->comboBox1->Size = System::Drawing::Size(132, 24);
+			   this->comboBox1->TabIndex = 12;
+			   // 
 			   // Profile_form
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(30)), static_cast<System::Int32>(static_cast<System::Byte>(30)), static_cast<System::Int32>(static_cast<System::Byte>(30)));
+			   this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(30)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(30)));
 			   this->ClientSize = System::Drawing::Size(617, 413);
+			   this->Controls->Add(this->comboBox1);
 			   this->Controls->Add(this->button6);
 			   this->Controls->Add(this->textBox1);
 			   this->Controls->Add(this->button5);
@@ -352,7 +378,6 @@ namespace BeonFit {
 			   this->Controls->Add(this->button1);
 			   this->Controls->Add(this->radioButton2);
 			   this->Controls->Add(this->radioButton1);
-			   this->Controls->Add(this->textBox5);
 			   this->Controls->Add(this->textBox4);
 			   this->Controls->Add(this->textBox3);
 			   this->Controls->Add(this->textBox2);
@@ -374,7 +399,7 @@ namespace BeonFit {
 		   }
 #pragma endregion
 
-		   // --- ÇÀÂÀÍÒÀÆÅÍÍß ÄÀÍÈÕ ÏÐÈ ÑÒÀÐÒ² ---
+			   // --- ÇÀÂÀÍÒÀÆÅÍÍß ÄÀÍÈÕ ÏÐÈ ÑÒÀÐÒ² ---
 	private: System::Void Profile_form_Load(System::Object^ sender, System::EventArgs^ e) {
 		if (!String::IsNullOrEmpty(userLogin)) {
 			label1->Text = userLogin; // Ïîêàçóºìî ëîã³í þçåðà çâåðõó
@@ -384,7 +409,10 @@ namespace BeonFit {
 			textBox2->Text = ProfileService::GetField(userLogin, "Growth");
 			textBox4->Text = ProfileService::GetField(userLogin, "Target_waight");
 			textBox1->Text = ProfileService::GetField(userLogin, "Number_phone");
-			textBox5->Text = ProfileService::GetField(userLogin, "Intensity");
+			String^ currentIntensity = ProfileService::GetField(userLogin, "Intensity");
+			if (!String::IsNullOrEmpty(currentIntensity)) {
+				comboBox1->SelectedItem = currentIntensity; // Àâòîìàòè÷íî âèáåðå ïîòð³áíèé ïóíêò
+			}
 
 			String^ sex = ProfileService::GetField(userLogin, "Sex");
 			if (sex == "Male") radioButton2->Checked = true;
@@ -429,14 +457,16 @@ namespace BeonFit {
 
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) { // INTENSITY
 		if (!String::IsNullOrEmpty(userLogin)) {
-			String^ val = textBox5->Text->Trim();
-			if (val == "High" || val == "Medium" || val == "Easy") {
-				ProfileService::UpdateField(userLogin, "Intensity", val);
-				MessageBox::Show("Intensity saved");
+			if (comboBox1->SelectedItem == nullptr) {
+				MessageBox::Show("Please select intensity level!");
+				return;
 			}
-			else {
-				MessageBox::Show("Must be High, Medium or Easy");
-			}
+
+			String^ val = comboBox1->SelectedItem->ToString();
+
+			// Òåïåð ïåðåâ³ðêà if/else íå ïîòð³áíà, áî êîðèñòóâà÷ âèáèðàº ç³ ñïèñêó
+			ProfileService::UpdateField(userLogin, "Intensity", val);
+			MessageBox::Show("Intensity saved: " + val);
 		}
 	}
 
